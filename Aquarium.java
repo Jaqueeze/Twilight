@@ -13,9 +13,9 @@ public class Aquarium {
         canvas.setBackgroundColor(Color.DARK_GRAY);
         painter.liftPen(); 
         painter.moveTo(-400,-150);
-        painter.setPenColor(Color.GREEN); 
+        painter.setPenColor(new Color(69, 110, 43)); 
         painter.lowerPen(); 
-        painter.startFill(Color.GREEN); 
+        painter.startFill(new Color(69, 110, 43)); 
         painter.forward(800); 
         painter.turnRight(90); 
         painter.forward(150); 
