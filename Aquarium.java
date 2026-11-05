@@ -13,6 +13,7 @@ public class Aquarium {
         // Creates the beggining template for the twilight scene
         PainterAPI painter = canvas.getPainter();
         canvas.setBackgroundColor(Color.DARK_GRAY);
+
         painter.liftPen(); 
         painter.moveTo(-400,-150);
         painter.setPenColor(new Color(69, 110, 43)); 
@@ -48,8 +49,10 @@ public class Aquarium {
                 //Leafs
                 painter.turnLeft(120);
                 painter.setPenColor(new Color(0,100,0));
+                painter.setPenWidth(8);
                 painter.forward(20);
                 painter.backward(20);
+                painter.setPenWidth(5); 
                 painter.setPenColor(new Color(107, 73, 43)); 
                 painter.turnRight(120); 
 
@@ -79,7 +82,42 @@ public class Aquarium {
             xSpanningGrass += randomXNum; 
             
         }
-        
+
+        //Creates multiple circles to create lighter clouds in the background
+        painter.liftPen(); 
+        painter.turnRight(180); 
+        painter.moveTo(-410,290);
+        painter.lowerPen(); 
+        int xSpanningSky = -400; 
+        while (xSpanningSky < 430){
+            // int randomYNum = ThreadLocalRandom.current().nextInt(350, 400);
+            int randomXNum = ThreadLocalRandom.current().nextInt(20, 30);
+            int randomRadius = ThreadLocalRandom.current().nextInt(50, 100);
+            painter.setPenColor(new Color(169, 169, 169));
+            painter.startFill(new Color(169, 169, 169)); 
+            painter.circle(randomRadius); 
+            painter.finishFill(); 
+            xSpanningSky += randomXNum; 
+            painter.moveTo(xSpanningSky, 280); 
+        }
+        //Creates multiple circles to create smaller darker clouds for depth heh
+        //Creates multiple circles to create lighter clouds in the background
+        painter.liftPen(); 
+        painter.turnRight(180); 
+        painter.moveTo(-410,290);
+        painter.lowerPen(); 
+        xSpanningSky = -400; 
+        while (xSpanningSky < 430){
+            // int randomYNum = ThreadLocalRandom.current().nextInt(350, 400);
+            int randomXNum = ThreadLocalRandom.current().nextInt(20, 30);
+            int randomRadius = ThreadLocalRandom.current().nextInt(20, 70);
+            painter.setPenColor(new Color(211, 211, 211));
+            painter.startFill(new Color(211, 211, 211)); 
+            painter.circle(randomRadius); 
+            painter.finishFill(); 
+            xSpanningSky += randomXNum; 
+            painter.moveTo(xSpanningSky, 280); 
+        }
 
     }
 }
